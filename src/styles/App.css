@@ -41,19 +41,19 @@ body {
 }
 
 .dropdown-list {
-  position: fixed; 
-  right: 0;        
-  top: 0;          
-  list-style: none; 
-  text-align: right; 
-  margin: 0;        
-  padding: 10px;    
-  width: 100px;     
-  z-index: 3;       
-  font-size: 15px;  
-  height: 100vh;    
+  position: fixed;
+  right: 0;
+  top: 0;
+  list-style: none;
+  text-align: right;
+  margin: 0;
+  padding: 10px;
+  width: 100px;
+  z-index: 3;
+  font-size: 15px;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 0.2);
-  overflow-y: auto; 
+  overflow-y: auto;
 
   opacity: 0;
   animation: slideLeft 0.2s ease-in-out 0.1s forwards;
@@ -179,7 +179,7 @@ body {
 .quiz-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   min-height: 500px;
 }
@@ -204,12 +204,27 @@ body {
 
 .quiz-options button {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   min-height: 50px;
   border-radius: 10px;
   border: 1px solid #fff;
   background-color: #312720;
   cursor: pointer;
+}
+
+.quiz-progress {
+  width: 350px;
+  margin: 20px 0;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50; /* You can change the color to fit your design */
+  transition: width 0.3s ease;
 }
 
 .previous-question {
@@ -229,7 +244,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   opacity: 0;
   animation: slideUp 0.5s ease-in-out 0.1s forwards;
 }
@@ -309,7 +324,7 @@ body {
 }
 
 .result-bottom {
-  padding-block: 15px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -338,8 +353,8 @@ body {
   cursor: pointer;
 }
 
-.menu-collapse:hover {
-  text-decoration: wavy;
+.menu-collapse p {
+  margin: 0;
 }
 
 .category-sliders {
@@ -430,12 +445,12 @@ body {
 }
 
 .about-body {
-  background-color: #100d0a;
+  background-color: #16120e;
   border-radius: 10px;
   border: 1px solid #7e7e7e;
 
   padding: 20px;
-  margin: 10px 0px 40px 0px;
+  margin-block: 40px;
 }
 
 .about-body p {
@@ -466,7 +481,7 @@ body {
 
 /* Intro Box */
 .intro {
-  background-color: #100d0a;
+  background-color: #16120e;
   border: 1px solid #7e7e7e;
   border-radius: 15px;
   padding: 20px;
@@ -531,8 +546,8 @@ body {
   margin: 0;
   padding: 20px;
   background-color: #100d0a;
+  font-size: 10px;
 }
-
 
 /* animations */
 @keyframes slideLeft {
@@ -569,14 +584,14 @@ body {
 @keyframes scaleDown {
   0% {
     -webkit-transform: scaleY(0.4);
-            transform: scaleY(0.4);
+    transform: scaleY(0.4);
     -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
   }
   100% {
     -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    transform: scaleY(1);
     -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
   }
 }

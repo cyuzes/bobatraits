@@ -4,7 +4,14 @@ import { GiBoba } from "react-icons/gi";
 import { CiRedo, CiSaveDown2, CiBoxList, CiShare2 } from "react-icons/ci";
 import { GrFormPrevious } from "react-icons/gr";
 import { RxCross1 } from "react-icons/rx";
-import { FaTiktok, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaTiktok,
+  FaLinkedin,
+  FaInstagram,
+  FaYoutube,
+  FaCaretDown,
+  FaCaretUp,
+} from "react-icons/fa";
 import "../styles/App.css";
 import cloud2 from "../assets/cloud2.png";
 import navinpfp from "../assets/navinpfp.jpg";
@@ -223,6 +230,7 @@ function App() {
       p: 0,
     });
     setResults(null);
+    setProgress(0);
   };
 
   // question system
@@ -234,6 +242,7 @@ function App() {
     setAnswers([...answers, option.answer]);
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      updateProgress();
     } else {
       handleQuizSubmit();
     }
@@ -245,6 +254,13 @@ function App() {
       setCurrentQuestion(currentQuestion - 1);
       setAnswers(answers.slice(0, -1)); // Optionally remove last answer
     }
+  };
+
+  // progress bar
+  const [progress, setProgress] = useState(0);
+  const updateProgress = () => {
+    const progressPercentage = ((currentQuestion + 1) / questions.length) * 100;
+    setProgress(progressPercentage);
   };
 
   // closing quiz
@@ -339,49 +355,51 @@ function App() {
       <section className="web-container">
         <div>
           {/* header section */}
-          <header className="web-header">
-            <div className="header-left">
-              <section className="brand">
-                <GiBoba />
-                <h1>bobatraits.</h1>
-              </section>
-            </div>
-            <div className="header-right">
-              {!isDropdownOpen && ( // Render the menu button only when dropdown is closed
-                <button className="dropdown-menu" onClick={() => setDropdownOpen(true)}>
-                  <IoMdMenu />
-                </button>
-              )}
-              {isDropdownOpen && (
-                <ul className="dropdown-list">
-                  <li>
-                    <a onClick={toggleDropdown}>
-                      <RxCross1 />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#hero" onClick={handleStartQuiz && toggleDropdown}>
-                      <b>start</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#menu" onClick={toggleDropdown}>
-                      <b>menu</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#about-us" onClick={toggleDropdown}>
-                      <b>about us</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://forms.gle/3Bcury57qsqoGjBX6" >
-                      <b>contact us</b>
-                    </a>
-                  </li>
-                </ul>
-              )}
-            </div>
+          <header>
+            <section className="web-header">
+              <div className="header-left">
+                <section className="brand">
+                  <GiBoba />
+                  <h1>bobatraits.</h1>
+                </section>
+              </div>
+              <div className="header-right">
+                {!isDropdownOpen && ( // Render the menu button only when dropdown is closed
+                  <button className="dropdown-menu" onClick={() => setDropdownOpen(true)}>
+                    <IoMdMenu />
+                  </button>
+                )}
+                {isDropdownOpen && (
+                  <ul className="dropdown-list">
+                    <li>
+                      <a onClick={toggleDropdown}>
+                        <RxCross1 />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#hero" onClick={handleStartQuiz && toggleDropdown}>
+                        <b>start</b>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#menu" onClick={toggleDropdown}>
+                        <b>menu</b>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#about-us" onClick={toggleDropdown}>
+                        <b>about us</b>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://forms.gle/3Bcury57qsqoGjBX6">
+                        <b>contact us</b>
+                      </a>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            </section>
           </header>
 
           {/* main section */}
@@ -421,6 +439,9 @@ function App() {
                   isQuizOpen && (
                     <div className="quiz-container">
                       <section className="quiz-background">
+                        <div className="quiz-progress">
+                          <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+                        </div>
                         <p>{questions[currentQuestion].question}</p>
                         <ul className="quiz-options">
                           {questions[currentQuestion].options.map((option, index) => (
@@ -487,14 +508,25 @@ function App() {
             <div className="menu" id="menu">
               <section className="menu-background">
                 <button className="menu-collapse" onClick={handleMenuCollapse}>
-                  {isMenuCollapse ? "open menu" : "collapse menu"}
+                  {isMenuCollapse ? (
+                    <p>
+                      open menu
+                      <br />
+                      <FaCaretDown />
+                    </p>
+                  ) : (
+                    <p>
+                      close menu
+                      <br />
+                      <FaCaretUp />
+                    </p>
+                  )}
                 </button>
                 {!isMenuCollapse && (
                   <div className="category-sliders">
                     {Object.keys(categories).map((category) => (
                       <div key={category} className="category-slider">
-                        <h2>{category}</h2>
-                        <div className="category-separator"></div>
+                        <h2>───‏ ‎ {category} ‏ ‎───</h2>
                         <div className="slider-container">
                           <button
                             className="slide-button prev"
@@ -531,7 +563,6 @@ function App() {
             <div className="about-us" id="about-us">
               <section className="about-background">
                 <div className="about-text">
-                  <h2>about us</h2>
                   <section className="about-body">
                     <p>
                       bobatraits offers a fun and unique way to explore your personality through the
