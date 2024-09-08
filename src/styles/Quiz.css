@@ -1,0 +1,139 @@
+.quiz-container {
+  width: 300px;
+  margin: auto auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.cloud-section img {
+  max-width: 100%;
+}
+
+.beginning {
+  position: relative;
+
+  opacity: 0;
+  animation: slideUp 0.5s ease-in-out 0.1s forwards;
+}
+
+.cloud {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.beginning h1 {
+  position: relative;
+  margin: 0;
+  z-index: 2;
+  margin-bottom: 20px;
+  font-size: 50px;
+  color: #35302a;
+  text-shadow: none;
+}
+
+.beginning li {
+  text-align: left;
+}
+
+.beginning ol {
+  padding-left: 24px;
+}
+
+.beginning button,
+.back button {
+  font-family: "MyCustomFont", sans-serif;
+  background-color: rgb(85, 77, 70);
+  color: #fff;
+  padding: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+}
+
+.beginning button {
+  font-size: 18px;
+  padding-inline: 20px;
+
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out 0.5s forwards;
+}
+
+.disclaimer p {
+  margin: 0;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+.questions {
+  margin-bottom: 20px;
+}
+
+.questions h2 {
+  font-size: 20px;
+}
+
+.questions button {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  font-family: "MyCustomFont", sans-serif;
+  background-color: rgb(85, 77, 70);
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+}
+
+.questions button:hover,
+.back button:hover {
+  background-color: #ffffff;
+  color: rgb(85, 77, 70);
+  transform: scale(1.05);
+}
+
+.question-separator {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  margin: 20px 0;
+}
+
+.handleFinishQuiz {
+  font-family: "MyCustomFont", sans-serif;
+  background-color: rgb(85, 77, 70);
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+}
