@@ -21,6 +21,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-inline: 500px;
   padding: 20px;
 }
 
@@ -38,6 +39,7 @@ body {
   padding: 0;
   font-size: 25px;
   cursor: pointer;
+  color: #82b16f;
 }
 
 .dropdown-list {
@@ -91,6 +93,7 @@ body {
 }
 
 .hero-content {
+  margin-inline: 500px;
   padding: 200px 0px 40px 20px;
 }
 
@@ -110,6 +113,7 @@ body {
   border: 1px solid #fff;
   border-radius: 10px;
   cursor: pointer;
+  color: #82b16f;
 }
 
 /* quiz beginning */
@@ -190,7 +194,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 350px;
-  padding-block: 60px 40px;
+  padding-block: 40px;
 }
 
 .quiz-options {
@@ -210,6 +214,8 @@ body {
   border: 1px solid #fff;
   background-color: #312720;
   cursor: pointer;
+  color: #82b16f;
+  font-size: 14px;
 }
 
 .quiz-progress {
@@ -223,7 +229,7 @@ body {
 
 .progress-bar {
   height: 100%;
-  background-color: #4caf50; /* You can change the color to fit your design */
+  background-color: #82b16f; /* You can change the color to fit your design */
   transition: width 0.3s ease;
 }
 
@@ -258,6 +264,7 @@ body {
   background-color: #41342b;
   border-radius: 10px;
   width: 400px;
+  max-width: 85%;
   margin-block: 20px;
 }
 
@@ -351,15 +358,20 @@ body {
   border: none;
   border-bottom: 1px solid #fff;
   cursor: pointer;
+  color: #82b16f;
 }
 
 .menu-collapse p {
   margin: 0;
 }
 
-.category-sliders {
-  padding-block: 10px;
+.category-container {
+  padding-bottom: 10px;
   border-bottom: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .category-slider {
@@ -374,12 +386,18 @@ body {
   margin-block: 10px;
 }
 
-.category-separator {
-  width: 100%;
-  max-width: 200px;
-  height: 2px;
-  background-color: #ffffff;
-  margin: 0px auto 20px;
+.menu-description {
+  display: flex;
+  gap: 30px;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.menu-description h2 {
+  min-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slider-container {
@@ -439,8 +457,8 @@ body {
   max-width: 85%;
 }
 
-.about-text h2 {
-  padding-block: 40px 10px;
+.meet h2 {
+  padding-block: 20px 10px;
   margin: 0;
 }
 
@@ -502,7 +520,7 @@ body {
 .mbti {
   text-align: left;
   margin-top: 0px;
-  color: #bbbbbb;
+  color: #a3a3a3;
   font-size: 14px;
 }
 
@@ -510,7 +528,7 @@ body {
 .name-separator {
   width: 100%;
   height: 1px;
-  background-color: #ddd;
+  background-color: #82b16f;
   margin: 20px 0;
 }
 
@@ -594,4 +612,22 @@ body {
     -webkit-transform-origin: 100% 0%;
     transform-origin: 100% 0%;
   }
+}
+
+@media (max-width: 1900px) {
+  .web-header {
+    margin-inline: 200px;
+  }
+  .hero-content {
+    margin-inline: 200px;
+  }  
+}
+
+@media (max-width: 1024px) {
+  .web-header {
+    margin-inline: 0px;
+  }
+  .hero-content {
+    margin-inline: 0px;
+  }  
 }

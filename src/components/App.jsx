@@ -283,14 +283,6 @@ function App() {
     <a href="#menu" />;
   };
 
-  /* copy link button */
-  const url = "https://cyuzes.github.io/bobatraits/";
-  const handleCopyLink = () => {
-    if (buttonsEnabled) {
-      navigator.clipboard.writeText(url);
-    }
-  };
-
   /* default state */
   const [currentItemIndexes, setCurrentItemIndexes] = useState({
     classic: 0,
@@ -422,7 +414,7 @@ function App() {
                       <img src={cloud2} alt="cloud" className="cloud" />
                     </section>
                     <section className="beginning-text">
-                      <h2>welcome! </h2>
+                      <h2>welcome!</h2>
                       <p>here are reminders that will help get you the most accurate results:</p>
                       <ol>
                         <li>read each question carefully.</li>
@@ -485,11 +477,19 @@ function App() {
                         </section>
                         <section className="menu-button">
                           <CiBoxList />
-                          <button onClick={handleMenu}>complete menu</button>
+                          <a href="#menu">
+                            <button>complete menu</button>
+                          </a>
                         </section>
                         <section className="copy-button">
                           <CiShare2 />
-                          <button onClick={handleCopyLink}>share link</button>
+                          <button
+                            onClick={navigator.clipboard.writeText(
+                              "https://cyuzes.github.io/bobatraits/"
+                            )}
+                          >
+                            share link
+                          </button>
                         </section>
                       </section>
                       <section className="result-bottom">
@@ -523,7 +523,16 @@ function App() {
                   )}
                 </button>
                 {!isMenuCollapse && (
-                  <div className="category-sliders">
+                  <div className="category-container">
+                    <section className="menu-description">
+                      <h2>explore the menu!</h2>
+                      <p>
+                        the complete drink menu of bobatraits with categories to easily navigate and
+                        find your desired flavor. click on the drink to see its nutritional facts.
+                        to find the flavor that best fits your personality, simply click the button
+                        below or navigate to the home page to start!
+                      </p>
+                    </section>
                     {Object.keys(categories).map((category) => (
                       <div key={category} className="category-slider">
                         <h2>───‏ ‎ {category} ‏ ‎───</h2>
@@ -580,7 +589,7 @@ function App() {
                   </section>
                 </div>
                 <section className="meet">
-                  <h2>the bobaristas</h2>
+                  <h2>meet the bobaristas</h2>
                 </section>
                 <div className="team">
                   <div className="navin">
